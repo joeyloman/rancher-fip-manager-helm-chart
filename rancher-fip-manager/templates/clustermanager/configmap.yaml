@@ -1,0 +1,62 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: rancher-fip-config
+  namespace: {{ .Release.Namespace | default "kube-system" }}
+  labels:
+    {{- include "rancher-fip-cluster-manager.labels" . | nindent 4 }}
+data:
+{{- if .Values.clustermanager.RancherFipApiServerURL }}
+  RancherFipApiServerURL: "{{ .Values.clustermanager.RancherFipApiServerURL }}"
+{{- end }}
+{{- if .Values.clustermanager.RancherFipLBControllerChartName }}
+  RancherFipLBControllerChartName: "{{ .Values.clustermanager.RancherFipLBControllerChartName }}"
+{{- end }}
+{{- if .Values.clustermanager.RancherFipLBControllerChartRef }}
+  RancherFipLBControllerChartRef: "{{ .Values.clustermanager.RancherFipLBControllerChartRef }}"
+{{- end }}
+{{- if .Values.clustermanager.RancherFipLBControllerChartVersion }}
+  RancherFipLBControllerChartVersion: "{{ .Values.clustermanager.RancherFipLBControllerChartVersion }}"
+{{- end }}
+{{- if .Values.clustermanager.RancherFipLBControllerNamespace }}
+  RancherFipLBControllerNamespace: "{{ .Values.clustermanager.RancherFipLBControllerNamespace }}"
+{{- end }}
+{{- if .Values.clustermanager.RancherFipLBControllerValues }}
+  RancherFipLBControllerValues: |
+    image:
+      repository: "{{ .Values.clustermanager.RancherFipLBControllerValues.image.repository }}"
+      tag: "{{ .Values.clustermanager.RancherFipLBControllerValues.image.tag }}"
+{{- end }}
+{{- if .Values.clustermanager.MetalLBControllerChartName }}
+  MetalLBControllerChartName: "{{ .Values.clustermanager.MetalLBControllerChartName }}"
+{{- end }}
+{{- if .Values.clustermanager.MetalLBControllerChartRef }}
+  MetalLBControllerChartRef: "{{ .Values.clustermanager.MetalLBControllerChartRef }}"
+{{- end }}
+{{- if .Values.clustermanager.MetalLBControllerChartVersion }}
+  MetalLBControllerChartVersion: "{{ .Values.clustermanager.MetalLBControllerChartVersion }}"
+{{- end }}
+{{- if .Values.clustermanager.MetalLBControllerNamespace }}
+  MetalLBControllerNamespace: "{{ .Values.clustermanager.MetalLBControllerNamespace }}"
+{{- end }}
+{{- if .Values.clustermanager.MetalLBControllerValues }}
+  MetalLBControllerValues: |
+    controller:
+      image:
+        repository: "{{ .Values.clustermanager.MetalLBControllerValues.controller.image.repository }}"
+        tag: "{{ .Values.clustermanager.MetalLBControllerValues.controller.image.tag }}"
+      nodeSelector:
+        {{ .Values.clustermanager.MetalLBControllerValues.controller.nodeSelector | default "node-role.kubernetes.io/master: 'true'" }}
+      tolerations: {{ .Values.clustermanager.MetalLBControllerValues.controller.tolerations | default "[]" }}
+    speaker:
+      image:
+        repository: "{{ .Values.clustermanager.MetalLBControllerValues.speaker.image.repository }}"
+        tag: "{{ .Values.clustermanager.MetalLBControllerValues.speaker.image.tag }}"
+      nodeSelector:
+        {{ .Values.clustermanager.MetalLBControllerValues.speaker.nodeSelector | default "node-role.kubernetes.io/master: 'true'" }}
+      tolerations: {{ .Values.clustermanager.MetalLBControllerValues.speaker.tolerations | default "[]" }}
+      frr:
+        image:
+          repository: "{{ .Values.clustermanager.MetalLBControllerValues.speaker.frr.image.repository }}"
+          tag: "{{ .Values.clustermanager.MetalLBControllerValues.speaker.frr.image.tag }}"
+{{- end }}
