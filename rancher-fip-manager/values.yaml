@@ -127,7 +127,7 @@ clustermanager:
   image:
     repository: ghcr.io/joeyloman/rancher-fip-cluster-manager
     pullPolicy: IfNotPresent
-    tag: "v0.1.0"
+    tag: "v0.2.0"
   
   imagePullSecrets: []
   nameOverride: "rancher-fip-cluster-manager"
@@ -180,13 +180,13 @@ clustermanager:
   # rancher-fip-lb-controller install options
   RancherFipLBControllerChartName: rancher-fip-lb-controller
   RancherFipLBControllerChartRef: https://joeyloman.github.io/rancher-fip-manager-helm-chart
-  RancherFipLBControllerChartVersion: 0.1.0
+  RancherFipLBControllerChartVersion: 0.2.0
   RancherFipLBControllerNamespace: rancher-fip-manager
   RancherFipLBControllerValues:
     image:
       repository: ghcr.io/joeyloman/rancher-fip-lb-controller
       pullPolicy: IfNotPresent
-      tag: "v0.1.0"
+      tag: "v0.2.0"
 
   # metallb install options
   MetalLBControllerChartName: metallb
@@ -254,7 +254,7 @@ apiserver:
   image:
     repository: ghcr.io/joeyloman/rancher-fip-api-server
     pullPolicy: IfNotPresent
-    tag: "v0.1.0"
+    tag: "v0.2.0"
   
   imagePullSecrets: []
   nameOverride: "rancher-fip-api-server"
