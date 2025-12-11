@@ -11,7 +11,7 @@ manager:
   image:
     repository: ghcr.io/joeyloman/rancher-fip-manager
     pullPolicy: IfNotPresent
-    tag: "v0.2.0"
+    tag: "v0.3.0"
   
   imagePullSecrets: []
   nameOverride: "rancher-fip-manager"
@@ -191,13 +191,13 @@ clustermanager:
   # metallb install options
   MetalLBControllerChartName: metallb
   MetalLBControllerChartRef: https://metallb.github.io/metallb
-  MetalLBControllerChartVersion: 0.15.2
+  MetalLBControllerChartVersion: 0.15.3
   MetalLBControllerNamespace: rancher-fip-manager
   MetalLBControllerValues:
     controller:
       image:
         repository: quay.io/metallb/controller
-        tag: v0.15.2
+        tag: v0.15.3
       nodeSelector:
         "node-role.kubernetes.io/master: 'true'"
       tolerations: '[
@@ -220,7 +220,7 @@ clustermanager:
     speaker:
       image:
         repository: quay.io/metallb/speaker
-        tag: v0.15.2
+        tag: v0.15.3
       nodeSelector:
         "node-role.kubernetes.io/master: 'true'"
       tolerations: '[
@@ -243,7 +243,7 @@ clustermanager:
       frr:
         image:
           repository: quay.io/frrouting/frr
-          tag: 9.1.0
+          tag: 10.4.1
 
 #
 # rancher-fip-api-server options
