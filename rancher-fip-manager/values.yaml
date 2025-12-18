@@ -11,7 +11,7 @@ manager:
   image:
     repository: ghcr.io/joeyloman/rancher-fip-manager
     pullPolicy: IfNotPresent
-    tag: "v0.3.0"
+    tag: "v0.3.1"
   
   imagePullSecrets: []
   nameOverride: "rancher-fip-manager"
@@ -69,7 +69,7 @@ webhook:
   image:
     repository: ghcr.io/joeyloman/rancher-fip-manager-webhook
     pullPolicy: IfNotPresent
-    tag: "v0.1.0"
+    tag: "v0.1.1"
   
   imagePullSecrets: []
   nameOverride: "rancher-fip-manager-webhook"
@@ -127,7 +127,7 @@ clustermanager:
   image:
     repository: ghcr.io/joeyloman/rancher-fip-cluster-manager
     pullPolicy: IfNotPresent
-    tag: "v0.2.0"
+    tag: "v0.2.1"
   
   imagePullSecrets: []
   nameOverride: "rancher-fip-cluster-manager"
@@ -180,13 +180,13 @@ clustermanager:
   # rancher-fip-lb-controller install options
   RancherFipLBControllerChartName: rancher-fip-lb-controller
   RancherFipLBControllerChartRef: https://joeyloman.github.io/rancher-fip-manager-helm-chart
-  RancherFipLBControllerChartVersion: 0.2.0
+  RancherFipLBControllerChartVersion: 0.2.1
   RancherFipLBControllerNamespace: rancher-fip-manager
   RancherFipLBControllerValues:
     image:
       repository: ghcr.io/joeyloman/rancher-fip-lb-controller
       pullPolicy: IfNotPresent
-      tag: "v0.2.0"
+      tag: "v0.2.1"
 
   # metallb install options
   MetalLBControllerChartName: metallb
@@ -199,7 +199,7 @@ clustermanager:
         repository: quay.io/metallb/controller
         tag: v0.15.3
       nodeSelector:
-        "node-role.kubernetes.io/master: 'true'"
+        "node-role.kubernetes.io/control-plane: 'true'"
       tolerations: '[
         {
           "effect": "NoSchedule",
@@ -222,7 +222,7 @@ clustermanager:
         repository: quay.io/metallb/speaker
         tag: v0.15.3
       nodeSelector:
-        "node-role.kubernetes.io/master: 'true'"
+        "node-role.kubernetes.io/control-plane: 'true'"
       tolerations: '[
         {
           "effect": "NoSchedule",
@@ -254,7 +254,7 @@ apiserver:
   image:
     repository: ghcr.io/joeyloman/rancher-fip-api-server
     pullPolicy: IfNotPresent
-    tag: "v0.2.1"
+    tag: "v0.2.2"
   
   imagePullSecrets: []
   nameOverride: "rancher-fip-api-server"

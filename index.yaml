@@ -2,8 +2,18 @@ apiVersion: v1
 entries:
   rancher-fip-lb-controller:
   - apiVersion: v2
+    appVersion: v0.2.1
+    created: "2025-12-18T10:23:37.785908+01:00"
+    description: A Helm chart for Kubernetes
+    digest: 0bb7bac14a0a0fc00d288ce04f6a8a3752b29c20cc946d0c321238b323fe8599
+    name: rancher-fip-lb-controller
+    type: application
+    urls:
+    - https://joeyloman.github.io/rancher-fip-manager-helm-chart/rancher-fip-lb-controller-0.2.1.tgz
+    version: 0.2.1
+  - apiVersion: v2
     appVersion: v0.2.0
-    created: "2025-12-11T07:46:24.667147+01:00"
+    created: "2025-12-18T10:23:37.78565+01:00"
     description: A Helm chart for Kubernetes
     digest: 0c3c8410b04320fa61466cb399d18cd2bbda04040f3387ee19b912ca94d9e0f5
     name: rancher-fip-lb-controller
@@ -13,7 +23,7 @@ entries:
     version: 0.2.0
   - apiVersion: v2
     appVersion: v0.1.0
-    created: "2025-12-11T07:46:24.666727+01:00"
+    created: "2025-12-18T10:23:37.785243+01:00"
     description: A Helm chart for Kubernetes
     digest: aa7097a255d2ca43d0e6a03daf147bec1665767fc7660e2edd27ef55ba2fef7d
     name: rancher-fip-lb-controller
@@ -23,8 +33,18 @@ entries:
     version: 0.1.0
   rancher-fip-manager:
   - apiVersion: v2
+    appVersion: v0.3.1
+    created: "2025-12-18T10:23:37.792242+01:00"
+    description: A Helm chart for Kubernetes
+    digest: e6a3f7820cabd6898b1a5b1d65cd86edd5793b5b1dd8f2d7d8b76a8142797ef8
+    name: rancher-fip-manager
+    type: application
+    urls:
+    - https://joeyloman.github.io/rancher-fip-manager-helm-chart/rancher-fip-manager-0.3.1.tgz
+    version: 0.3.1
+  - apiVersion: v2
     appVersion: v0.3.0
-    created: "2025-12-11T07:46:24.672279+01:00"
+    created: "2025-12-18T10:23:37.791484+01:00"
     description: A Helm chart for Kubernetes
     digest: a46c790d04638a50cae0d39233394f70eb43b21c5e4c8697e3498baa68087f14
     name: rancher-fip-manager
@@ -34,7 +54,7 @@ entries:
     version: 0.3.0
   - apiVersion: v2
     appVersion: v0.2.1
-    created: "2025-12-11T07:46:24.670834+01:00"
+    created: "2025-12-18T10:23:37.790519+01:00"
     description: A Helm chart for Kubernetes
     digest: 9e495be6c6434636afd639423c55ee77b887f2d45d6735f68feca464b6f908cd
     name: rancher-fip-manager
@@ -44,7 +64,7 @@ entries:
     version: 0.2.1
   - apiVersion: v2
     appVersion: v0.2.0
-    created: "2025-12-11T07:46:24.669942+01:00"
+    created: "2025-12-18T10:23:37.78882+01:00"
     description: A Helm chart for Kubernetes
     digest: 403e5f210c84a77ab79e49b40a144922c8d72f1d60c1a4e5ab9aece93856cd0b
     name: rancher-fip-manager
@@ -54,7 +74,7 @@ entries:
     version: 0.2.0
   - apiVersion: v2
     appVersion: v0.1.0
-    created: "2025-12-11T07:46:24.669008+01:00"
+    created: "2025-12-18T10:23:37.787838+01:00"
     description: A Helm chart for Kubernetes
     digest: a4fba3e365a9a3bfbd9b15edf8044700679b7d10e222ccbde16cfe11919206ae
     name: rancher-fip-manager
@@ -64,7 +84,7 @@ entries:
     version: 0.1.1
   - apiVersion: v2
     appVersion: v0.1.0
-    created: "2025-12-11T07:46:24.668058+01:00"
+    created: "2025-12-18T10:23:37.786869+01:00"
     description: A Helm chart for Kubernetes
     digest: 56ad415bd8600591a5efec76aeb31ed3676bab479a8d659ce02f2450627995ad
     name: rancher-fip-manager
@@ -72,4 +92,4 @@ entries:
     urls:
     - https://joeyloman.github.io/rancher-fip-manager-helm-chart/rancher-fip-manager-0.1.0.tgz
     version: 0.1.0
-generated: "2025-12-11T07:46:24.666001+01:00"
+generated: "2025-12-18T10:23:37.7843+01:00"
