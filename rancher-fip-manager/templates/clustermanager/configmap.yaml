@@ -27,6 +27,31 @@ data:
       repository: "{{ .Values.clustermanager.RancherFipLBControllerValues.image.repository }}"
       tag: "{{ .Values.clustermanager.RancherFipLBControllerValues.image.tag }}"
 {{- end }}
+{{- if .Values.clustermanager.PureLBControllerChartName }}
+  PureLBControllerChartName: "{{ .Values.clustermanager.PureLBControllerChartName }}"
+{{- end }}
+{{- if .Values.clustermanager.PureLBControllerChartRef }}
+  PureLBControllerChartRef: "{{ .Values.clustermanager.PureLBControllerChartRef }}"
+{{- end }}
+{{- if .Values.clustermanager.PureLBControllerChartVersion }}
+  PureLBControllerChartVersion: "{{ .Values.clustermanager.PureLBControllerChartVersion }}"
+{{- end }}
+{{- if .Values.clustermanager.PureLBControllerNamespace }}
+  PureLBControllerNamespace: "{{ .Values.clustermanager.PureLBControllerNamespace }}"
+{{- end }}
+{{- if .Values.clustermanager.PureLBControllerValues }}
+  PureLBControllerValues: |
+    image:
+      repository: "{{ .Values.clustermanager.PureLBControllerValues.image.repository }}"
+      tag: "{{ .Values.clustermanager.PureLBControllerValues.image.tag }}"
+    lbnodeagent:
+      sendgarp: true
+      nodeSelector:
+        {{ .Values.clustermanager.PureLBControllerValues.lbnodeagent.nodeSelector | default "node-role.kubernetes.io/control-plane: 'true'" }}
+      tolerations: {{ .Values.clustermanager.PureLBControllerValues.lbnodeagent.tolerations | default "[]" }}
+    allocator:
+      tolerations: {{ .Values.clustermanager.PureLBControllerValues.allocator.tolerations | default "[]" }}
+{{- end }}
 {{- if .Values.clustermanager.MetalLBControllerChartName }}
   MetalLBControllerChartName: "{{ .Values.clustermanager.MetalLBControllerChartName }}"
 {{- end }}
@@ -46,14 +71,14 @@ data:
         repository: "{{ .Values.clustermanager.MetalLBControllerValues.controller.image.repository }}"
         tag: "{{ .Values.clustermanager.MetalLBControllerValues.controller.image.tag }}"
       nodeSelector:
-        {{ .Values.clustermanager.MetalLBControllerValues.controller.nodeSelector | default "node-role.kubernetes.io/master: 'true'" }}
+        {{ .Values.clustermanager.MetalLBControllerValues.controller.nodeSelector | default "node-role.kubernetes.io/control-plane: 'true'" }}
       tolerations: {{ .Values.clustermanager.MetalLBControllerValues.controller.tolerations | default "[]" }}
     speaker:
       image:
         repository: "{{ .Values.clustermanager.MetalLBControllerValues.speaker.image.repository }}"
         tag: "{{ .Values.clustermanager.MetalLBControllerValues.speaker.image.tag }}"
       nodeSelector:
-        {{ .Values.clustermanager.MetalLBControllerValues.speaker.nodeSelector | default "node-role.kubernetes.io/master: 'true'" }}
+        {{ .Values.clustermanager.MetalLBControllerValues.speaker.nodeSelector | default "node-role.kubernetes.io/control-plane: 'true'" }}
       tolerations: {{ .Values.clustermanager.MetalLBControllerValues.speaker.tolerations | default "[]" }}
       frr:
         image:

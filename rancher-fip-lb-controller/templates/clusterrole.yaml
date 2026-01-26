@@ -58,3 +58,14 @@ rules:
   - watch
   - create
   - delete
+- apiGroups:
+  - purelb.io
+  resources:
+  - servicegroups
+  - lbnodeagents
+  verbs:
+  - get
+  - list
+  - watch
+  - create
+  - delete
